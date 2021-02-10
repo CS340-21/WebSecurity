@@ -1,7 +1,10 @@
 # Super Secure Login Page
 
-We are making an interactive website with vulnerabilities to be exploited, secured, and explained. We want to learn some web security and create an interesting project along the way! See our Project Proposal for more information.
+We are making an interactive website that contains a login page with vulnerabilities to be exploited and secured. Our goal is to learn some web security and create an interesting project along the way! See our [Project Proposal](https://github.com/CS340-21/WebSecurity/blob/master/Project_Proposal.md) for more information.
+
 
 ## Group Members
 
-Jacob Leonard, Blake Childress, Alex Brock
+* [Blake Childress](https://github.com/ObsidianSkin)
+* [Jacob Leonard](https://github.com/jacobleonard545)
+* [Alex Brock](https://github.com/ShrimpyJ)
