@@ -32,7 +32,7 @@
 ## IV. Team
 * The Scandinavian Defense Team name is influenced by one of the famous chess strategies where black's pawn meets the white pawn in the middle and opens a lot of opportunities for the defending side. To be honest, we also initially thought it was just a cool name. Our team has a great interest in getting into web development and cybersecurity, but this project will most certainly be a learning experience for us all.
 #### Team Members
-* **Alex Brock** has a technical background including game scripting, bash tooling and linux environment, and failed attempts at SQL Injections. He hopes to improve his experience web development and cybersecurity experience with this project. Also plays a ***mean*** guitar.
+* **Alex Brock** has a technical background including game scripting, bash tooling and linux environment, and failed attempts at SQL Injections. He hopes to improve his experience in web development and cybersecurity with this project. Also plays a ***mean*** guitar.
 * **Blake Childress** has some experience with scripting languages like Bash and Python and is familiar with the Kali enviroment. He hopes to sharpen his skills in web security and better acquaint himself in pentesting tools.
 * **Jacob Leonard** has some experience in HTML/CSS/JavaScript, but hopes to strengthen these skills even more by contributing to this project. He hopes to learn how web development and cybersecurity intertwine and how these two categories can be optimized for a more secure website.
 ## V. Project Management
