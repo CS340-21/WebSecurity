@@ -1,4 +1,4 @@
-# Web Security - Scandanavian Defence Team
+# Web Security - Scandinavian Defence Team
 ### Members:
 * [Alex Brock](https://github.com/ShrimpyJ)
 * [Blake Childress](https://github.com/ObsidianSkin)
