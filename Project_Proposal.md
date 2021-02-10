@@ -37,3 +37,75 @@
 * **Jacob Leonard** has some experience in HTML/CSS/JavaScript, but hopes to strengthen these skills even more by contributing to this project. He hopes to learn how web development and cybersecurity intertwine and how these two categories can be optimized for a more secure website.
 ## V. Project Management
 * The team has two divisions: **Web Development Team** & **Cybersecurity Team**. Jacob will focus on designing the website while Alex and Blake will focus on finding exploits and solutions. All team members will work with both divisions, but our focuses are split in order to progress efficiently.
+
+### Schedule
+
+#### Week 1 (Feb. 8-12)
+
+* Complete Project Proposal Draft (Feb 11th)
+
+* Create GitHub Pages website
+
+#### Week 2 (Feb. 15-19)
+
+* Revise Project Proposal (Feb. 18th)
+
+* Conduct research
+
+* Begin working on website
+
+
+#### Week 3 (Feb. 22-26)
+
+* Construct website w/ basic functionality
+
+* Continue research
+
+* Conduct basic pentesting if possible
+
+
+#### Week 4 (March 1-5)
+
+* Implement minimal viable system
+
+* Submit 1st status report (March 4th)
+
+
+#### Week 5 (March 8-12)
+
+* Add functionality to website
+
+* Improve security
+
+
+#### Week 6 (March 15-19)
+
+* Submit 2nd status report (March 18th)
+
+
+#### Week 7 (March 22-26)
+
+* Add functionality to website
+
+* Improve security
+
+
+#### Week 8 (March 29-April 2)
+
+* Submit 3rd status report (April 1st)
+
+
+#### Week 9 (April 5-9)
+
+* Add functionality to website
+
+* Improve security
+
+
+#### Week 10 (April 12-16)
+
+* Complete project implementation
+
+* Submit project report & present final result (April 15th)
+
+
