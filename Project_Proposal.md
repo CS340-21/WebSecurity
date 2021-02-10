@@ -1,4 +1,4 @@
-# Web Security - Scandinavian Defence Team
+# Web Security - Scandinavian Defense Team
 ### Members:
 * [Alex Brock](https://github.com/ShrimpyJ)
 * [Blake Childress](https://github.com/ObsidianSkin)
@@ -30,7 +30,7 @@
 * Website development will be conducted with typical tools such as HTML, JavaScript and CSS. Web frameworks such as Bootstrap may be utilized. For penetration testing we plan on using the tools available on Kali Linux, such as Burp Suite, Wireshark and sqlmap.
 
 ## IV. Team
-* The Scandinavian Defence Team name is influenced by one of the famous chess strategies where black's pawn meets the white pawn in the middle and opens a lot of opportunities for the defending side. We also thought it was just a cool name. Our team has a great interest in getting into web development and cybersecurity, but this project will most certainly be a learning experience for us all.
+* The Scandinavian Defense Team name is influenced by one of the famous chess strategies where black's pawn meets the white pawn in the middle and opens a lot of opportunities for the defending side. To be honest, we also initially thought it was just a cool name. Our team has a great interest in getting into web development and cybersecurity, but this project will most certainly be a learning experience for us all.
 #### Team Members
 * **Alex Brock** has a technical background including game scripting, bash tooling and linux environment, and failed attempts at SQL Injections. He hopes to improve his experience web development and cybersecurity experience with this project. Also plays a ***mean*** guitar.
 * **Blake Childress** has some experience with scripting languages like Bash and Python and is familiar with the Kali enviroment. He hopes to sharpen his skills in web security and better acquaint himself in pentesting tools.
