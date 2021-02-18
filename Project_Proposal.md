@@ -45,7 +45,7 @@
 * All of the resources we need can be found publically using any search engine. Although YouTube likes to suppress “hacking” channels, we can still access them with clear search terms. Guides and blogs will also be a great help.
 #### Descoping
 * The website should attain basic functionality very quickly. Any lost features would come in the form of not being able to address security issues in a timely manner. Although important, other things such as making the website more presentable and adding non-vital features may have to be sacrificed if time does not allow. Even so, the reduced form of our project will still serve in aiding our learning into web applications and pentesting while also delivering a basic secure website.
-### Bloack Diagram
+### Block Diagram
 <p align = "center">
   <img height = "400" width = "600" src="img/BlockDiagram.jpeg">
 </p>
