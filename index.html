@@ -1,101 +1,31 @@
-<html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-    <title>Login Page</title>
-</head>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
-<body>
-    <form name="loginForm" method="post" action="login.php">
-    <table width="20%" bgcolor="FF9933" align="center">
-
-        <tr>
-            <td colspan=2><center><font size=4><b>HTML Login Page</b></font></center></td>
-        </tr>
-
-        <tr>
-            <td>Username:</td>
-            <td><input type="text" size=25 name="userid"></td>
-        </tr>
-
-        <tr>
-            <td>Password:</td>
-            <td><input type="Password" size=25 name="pwd"></td>
-        </tr>
-
-        <tr>
-            <td ><input type="Reset"></td>
-            <td><input type="submit" onclick="return check(this.form)" value="Login"></td>
-        </tr>
-
-    </table>
-    
+    <title>Super Secure Login Page</title>
+  </head>
+  <body class="text-center">
+    <form class="form-signin">
+      <img src="img/Logo.jpeg" alt="" width="200" height="200">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <!-- <label for="inputEmail" class="sr-only">Email address</label> -->
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <!-- <label for="inputPassword" class="sr-only">Password</label> -->
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <a href="todo.html" class="btn btn-lg btn-primary btn-block">Sign in</a>
+      <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> -->
+      <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
     </form>
-    <script language="javascript">
-
-    /* List of usernames and passwords in plain text. */
-    var users = ["Student", "ShrimpyJ", "Blake", "jLane"];
-    var pwds = ["password123", "hunter2", "password123", "password123"];
-
-    /* Check to see if given user's password is correct. Case sensitive.
-       Returns: True on success, False on failure */
-    function checkPwd(pwds, pwd, userIndex)
-    {
-
-      if (userIndex == -1){
-        return false;
-      }
-
-      if (pwds[userIndex] == pwd){
-        return true;
-      }
-
-      return false;     // Return false by default
-
-    }
-
-    /* Check to see if given user is in list of user. Case insenstive.
-       Returns: index of user in user list if found, -1 otherwise */
-    function checkUser(users, user)
-    {
-
-      for (var i = 0; i < users.length; i++){
-        if (users[i].toLowerCase() == user.toLowerCase()){
-          return i;  //return index of user if they exist
-        }
-      }
-      return -1;     //return -1 if user does not exist
-
-    }
-
-    function rejectLogin()
-    {
-      alert("Incorrect username or password");
-      return false;
-    }
-
-    /* Get username and password from user, check if they are both correct. */
-    function check(form)
-    {
-
-        /* Check for username */
-        var userIndex = checkUser(users, form.userid.value);
-        if (userIndex == -1){
-          return rejectLogin();
-        }
-
-        /* Check for password */
-        else{
-          if (checkPwd(pwds, form.pwd.value, userIndex) == true){
-            return true;
-          }else{
-            return rejectLogin();
-          }
-        }
-        return false;   // Return false by default
-
-    }
-
-    </script>
-
-</body>
+  </body>
 </html>
