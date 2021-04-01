@@ -1,38 +1,9 @@
 <?php include "./inc/dbinfo.inc"; ?>
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-6">
-    <meta name="viewport" content="width=device-width, initial-scale=2">
-    <title>Scandinavian Defense Login</title>
-
-    <!-- Define styles -->
-    <link rel="stylesheet" href="main.css">
-  </head>
-
-  <body>
-
-    <!-- Login Form -->
-    <div class="login-page">
-      <div class="form">
-        <div class="login">
-          <div class="login-header">
-            <h3>Login</h3>
-          </div>
-        </div>
-        <form name="loginForm" method="post" action="login.php">
-            <input type="text" id="userid" name="userid" placeholder="Username" required>
-            <input type="Password" id="pwd" name="pwd" placeholder="Password" required>
-            <input type="Reset">
-            <input type="submit" value="Login"\>
-            <p class="message">Not registered?
-              <a href="register.html">Create an account</a></p>
-        </form>
-      </div>
-    </div>
-
 <?php
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
+  $error = '';
+
   $username = $_POST["userid"];
   $pwd = $_POST["pwd"];
 
@@ -50,12 +21,48 @@
   if(mysqli_num_rows($result) > 0){
     $_SESSION["logged_in"] = true;
     $_SESSION["name"] = $username;
-    header("Location:hello.php");
+    header("Location: welcome.php");
   }
   else{
-    echo '<script>alert("Username or password is incorrect")</script>';
+    $error = '<p class="error">Invalid username or password</p>';
+    goto end;
   }
 
+  end:
+}
+
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-6">
+<meta name="viewport" content="width=device-width, initial-scale=2">
+<title>Scandinavian Defense Login</title>
+<link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+  <!-- Login Form -->
+  <div class="login-page">
+    <div class="form">
+      <div class="login">
+        <div class="login-header">
+          <h3>Login to an existing account</h3>
+        </div>
+      </div>
+      <form name="loginForm" method="post" action="">
+        <input type="text" id="userid" name="userid" placeholder="Username" required>
+        <input type="Password" id="pwd" name="pwd" placeholder="Password" required>
+        <input type="Reset">
+        <input type="submit" name="submit" value="Login"\>
+        <p class="message">Not registered?
+          <a href="register.php">Create an account</a></p>
+        <?php echo $error; ?>
+      </form>
+    </div>
+  </div>
+
 </body>
 </html>
