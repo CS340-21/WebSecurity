@@ -6,190 +6,33 @@
     <title>Scandinavian Defense Login</title>
 
     <!-- Define styles -->
-    <style media="screen">
-      body { background: #ECEFF2; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 361px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h3 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h2 { font-size: 14px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 141%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #40be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 1 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(1,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 601px) {
-        body, #message { margin-top: 1; background: white; box-shadow: none; }
-        body { border-top: 17px solid #ffa100; }
-      }
-    </style>
+    <link rel="stylesheet" href="main.css">
   </head>
 
   <body>
-    <!-- Register Form -->
-    <form id="registerForm" action="register.php" method="post">
-    <table width="11%" bgcolor="D4CFC7" align="right">
-        <tr>
-            <td><h4>Register</h3></td>
-            <td><p>Create an account.</p></td>
-            <hr>
-        </tr>
-
-        <tr>
-            <td><label for="username"><b>Username</b></label></td>
-            <td><input type="text" placeholder="Username" name="username" id="username" required></td>
-        </tr>
-
-        <tr>
-            <td><label for="psw"><b>Password</b></label></td>
-            <td><input type="password" placeholder="Enter Password" name="psw" id="psw" required></td>
-        </tr>
-
-        <tr>
-            <td><label for="psw-repeat"><b>Repeat Password</b></label></td>
-            <td><input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required></td>
-        </tr>
-
-        <tr>
-            <td><input type="submit" value="Sign Up"></td>
-        </tr>
-    </table>
-    </form>
 
     <!-- Login Form -->
-    <form name="loginForm" method="post" action="login.php">
-    <table width="20%" bgcolor="FF9933" align="center">
-        <tr>
-            <td><h3>Login</h3></td>
-            <td><p>Already have an account? Login here.</p></td>
-        <tr>
-            <td>Username:</td>
-            <td><input type="text" size=25 name="userid" id="userid" required></td>
-        </tr>
-
-        <tr>
-            <td>Password:</td>
-            <td><input type="Password" size=25 name="pwd" id="pwd" required></td>
-        </tr>
-
-        <tr>
-            <td><input type="Reset"></td>
-            <td><input type="submit" onclick="return checkLogin(this.form)" value="Login"></td>
-        </tr>
-    </table>
-    </form>
+    <div class="login-page">
+      <div class="form">
+        <div class="login">
+          <div class="login-header">
+            <h3>Login</h3>
+          </div>
+        </div>
+        <form name="loginForm" method="post" action="login.php">
+            <input type="text" id="userid" name="userid" placeholder="Username" required>
+            <input type="Password" id="pwd" name="pwd" placeholder="Password" required>
+            <input type="Reset">
+            <input type="submit" value="Login"\>
+            <p class="message">Not registered?
+              <a href="register.php">Create an account</a></p>
+        </form>
+      </div>
+    </div>
+    
 
     <!-- Javascript begins here -->
     <script>
-
-    function checkRegister()
-    {
-        var psw = document.getElementById('psw').value;
-        var psw-repeat = document.getElementById('psw-repeat').value;
-        alert(psw);
-        if (form.psw.value == form.psw-repeat.value) return true;
-        alert("Passwords do not match");
-        return false;
-    }
-
-    /* List of usernames and passwords in plain text. */
-    var users = ["Student", "ShrimpyJ", "Blake", "jLen"];
-    var pwds = ["password123", "hunter2", "password123", "password123"];
-
-    /* List of hashed password */
-    var pwdsHashed = ["", "", "", ""];
-
-    /* Check to see if given password is correct. Case sensitive.
-       Returns: True on success, False on failure */
-    function checkPwd(pwds, pwd, userIndex)
-    {
-        if (userIndex == -1){       // Username is not correct
-            return false;
-        }
- 
-        if (pwds[userIndex] == pwd){
-            return true;
-        }
-
-        return false;     // Return false by default
-    }
-
-    /* Check to see if given user is in list of user. Case insenstive.
-       Returns: index of user in user list if found, -1 otherwise */
-    function checkUser(users, user)
-    {
-        for (var i = 0; i < users.length; i++){
-            if (users[i].toLowerCase() == user.toLowerCase()){
-                return i;  //return index of user if they exist
-            }
-        }
-        return -1;     //return -1 if user does not exist
-    }
-
-    function hashPwd(pwd)
-    {
-        var hash;
-        var i;
-        var c;
-        hash = 0;
-        for (var i = 0; i < pwd.length; i++){
-            c = pwd.charCodeAt(i);
-            hash = ((hash << 5) - hash) + c;
-            hash |= 0;
-        }
-
-        return hash;
-    }
-
-    function hashPwds(pwds, pwdsHashed)
-    {
-        for (var i = 0; i < pwds.length; i++){
-            pwdsHashed[i] = hashPwd(pwds[i]);
-        }
-    }
-
-    function checkPwdHashed(pwdsHashed, pwd, userIndex)
-    {
-        if (userIndex == -1){    // Invalid username
-            return false;
-        }
-
-        var hashed = hashPwd(pwd);
-
-        if (pwdsHashed[userIndex] == hashed){
-            return true;
-        }
-
-        return false;      // Return false by default
-    }
-
-
-    function rejectLogin()
-    {
-        alert("Invalid Username or Password");
-        return false;
-    }
-
-    function checkLogin(form)
-    {
-        return rejectLogin();
-        /* Hash passwords */
-        hashPwds(pwds, pwdsHashed);
-
-        /* Check for username */
-        var userIndex = checkUser(users, form.userid.value);
-        if (userIndex == -1){
-          return rejectLogin();
-        }
-
-        /* Check for password */
-        else{
-            if (checkPwdHashed(pwdsHashed, form.pwd.value, userIndex)){
-                return true;
-            }else{
-                return rejectLogin();
-            }
-        }
-
-        return rejectLogin();
-    }
 
     </script>
 
