@@ -1,6 +1,7 @@
 <?php include "./inc/dbinfo.inc"; ?>
 <?php
 
+/* Only execute PHP if it receives data from HTML */
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
   $error = '';
 
@@ -18,12 +19,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
   $result = mysqli_query($connection,
     "SELECT user_id, pwd FROM $table WHERE user_id='$username' AND pwd=BINARY '$pwd'");
 
+  /* Get the actual user_id (with proper captialization) for displaying back to user */
+  while ($row = mysqli_fetch_object($result)){
+    $userid = $row->user_id;
+  }
+
+  /* If user has valid login info, start a session. Set the session to have a logged_in bool and userid.
+     Take user to welcome page */
   if(mysqli_num_rows($result) > 0){
+    session_start();
     $_SESSION["logged_in"] = true;
-    $_SESSION["name"] = $username;
+    $_SESSION["userid"] = $userid;
     header("Location: welcome.php");
   }
-  else{
+  else{  /* Otherwise set the error (to an html string). This will be displayed when the page reloads the HTML */
     $error = '<p class="error">Invalid username or password</p>';
     goto end;
   }

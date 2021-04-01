@@ -8,48 +8,74 @@ header a img{
   margin-top: 4px;
 }
 img{
-  display: block;
   padding: 5px;
-  width: 250px;
-  margin: auto;
+  width: 120px;
 }
-.front-page {
-  width: 900px;
-  height: auto;
-  padding: 9% 0 0;
-  margin: auto;
+.logout{
+  position: absolute;
+  right: 1%;
+  top: 7%;
+}
+.sidebar{
+  position: absolute;
+  padding: 15px;
+  background: #d3d2d5;
+  left: 0%;
+  right: 81%;
+  top: 110%;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 3, 0.2), 0 10px 8px 0 rgba(0, 0, 0, 0.24);
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+}
+.banner{
+  font-family: "arial black";
+  position: fixed;
+  color: black;
+  right: 10%;
+  top: 18px;
+  background: #dad5d1;
+  width: 80%;
+  height: 50px;
+  max-width: auto;
+  text-align: justify;
+  padding: 15px;
+  text-shadow: 1px 1px 4px #e9eef2;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 3, 0.2), 0 10px 8px 0 rgba(0, 0, 0, 0.24);
+  font-size: 22px;
+}
+.username{
+  font-family: "arial black";
+  position: absolute;
+  color: white;
+  right: 120%;
+  top: -5%;
+  background: #6495ed;
+  background-image: radial-gradient(#1c84d6 40%,#1f89de);
+  width: 200px;
+  max-width: auto;
   text-align: center;
+  padding: 15px;
+  text-shadow: 1px 1px 4px #000000;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 3, 0.2), 0 10px 8px 0 rgba(0, 0, 0, 0.24);
+  font-size: 12px;
 }
-.front-page .front {
-  margin-top: -74px;
-  margin-bottom: 26px;
-  text-align: center;
+.main{
+  position: absolute;
+  padding: 15px;
+  background: #e1e1e1;
+  top: 110%;
+  left: 20%;
+  right: 0%;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 3, 0.2), 0 10px 8px 0 rgba(0, 0, 0, 0.24);
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
 }
-.front {
-  position: relative;
-  z-index: 1;
-  background: #FFFFFF;
-  max-width: 900px;
-  margin: 0 auto 100px;
-  padding: 65px;
-  text-align: center;
-  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 2px 5px 0 rgba(0, 0, 0, 0.24);
-}
-.login-page {
+.welcome-page {
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
 }
-.login-page .form .login{
-  margin-top: -31px;
-  margin-bottom: 26px;
-}
-.register-page {
-  width: 320px;
-  padding: 8% 0 0;
-  margin: auto;
-}
-.register-page .form .register{
+.welcome-page .form .welcome{
   margin-top: -31px;
   margin-bottom: 26px;
 }
@@ -100,6 +126,43 @@ img{
   transition: all 0.3 ease;
   cursor: pointer;
 }
+.logout button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background-color: #ababab;
+  width: 100%;
+  border: 0;
+  padding: 25px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+}
+.sidebar button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  margin: 3px;
+  color: white;
+  background: #636279;
+  font-size: 14px;
+  cursor: pointer;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+}
+
+.sidebar button:hover{
+  color: #c2c67f;
+}
+.logout button:hover{
+  color: black;
+}
 input[type=reset]{
   color: #f0f8ff;
   cursor: pointer;
@@ -132,6 +195,11 @@ input[type=submit]{
   font-family: "Roboto", sans-serif;
   font-size: 15px;
 }
+.message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
 .form .message {
   margin: 15px 0 0;
   color: #b3b3b3;
@@ -161,7 +229,7 @@ input[type=submit]{
 body {
   min-height: 100vh;
   background-color: #368f8a;
-  background-image: linear-gradient(35deg,#6495ed,#08ac4b);
+  background-image: linear-gradient(75deg,#d2691e,#8a2be2);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

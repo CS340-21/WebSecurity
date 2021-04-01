@@ -1,12 +1,22 @@
 <?php include "./inc/dbinfo.inc"; ?>
 <?php
 
+/* Only execute PHP if it receives data from HTML */
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
 
   /* Check passwords match */
   $error = '';
   if ($_POST["psw"] != $_POST["psw-repeat"]){
     $error = '<p class="error">Passwords do not match</p>';
+    goto end;
+  }
+
+  $username = $_POST["username"];
+  $psw = $_POST["psw"];
+
+  /* Reject if username is over 20 chars */
+  if (strlen($username) > 20){
+    $error = '<p class="error">Username too long (20 char max)</p>';
     goto end;
   }
 
@@ -18,9 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
 
 
   /* Return if username exists */
-  $username = $_POST["username"];
-  $psw = $_POST["psw"];
-  
   $sql_u = mysqli_query($connection, 
     "SELECT * FROM $table WHERE user_id='$username'");
   if (mysqli_num_rows($sql_u) > 0){
@@ -32,6 +39,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
   $result = mysqli_query($connection,
     "INSERT $table SET user_id='$username', pwd='$psw'");
   if ($result){
+    session_start();
+    $_SESSION["logged_in"] = true;
+    $_SESSION["userid"] = $username;
     header("Location: newuser.php");
   }
   
