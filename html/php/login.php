@@ -1,4 +1,4 @@
-<?php include "./inc/dbinfo.inc"; ?>
+<?php include "../inc/dbinfo.inc"; ?>
 <?php
 
 /* Only execute PHP if it receives data from HTML */
@@ -17,11 +17,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
   /* Accept new session if user/password is valid, otherwise reject */
   /* The BINARY keyword makes sure it's case-sensitive. Note it's used for pwd but not username */
   $result = mysqli_query($connection,
-    "SELECT user_id, pwd FROM $table WHERE user_id='$username' AND pwd=BINARY '$pwd'");
+    "SELECT user_id, pwd, permissions FROM $table WHERE user_id='$username' AND pwd=BINARY '$pwd'");
 
   /* Get the actual user_id (with proper captialization) for displaying back to user */
   while ($row = mysqli_fetch_object($result)){
     $userid = $row->user_id;
+    $permissions = $row->permissions;
   }
 
   /* If user has valid login info, start a session. Set the session to have a logged_in bool and userid.
@@ -30,6 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
     session_start();
     $_SESSION["logged_in"] = true;
     $_SESSION["userid"] = $userid;
+    $_SESSION["permissions"] = $permissions;
+
+    /* Go to welcome page */
     header("Location: welcome.php");
   }
   else{  /* Otherwise set the error (to an html string). This will be displayed when the page reloads the HTML */
@@ -48,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
 <meta charset="utf-6">
 <meta name="viewport" content="width=device-width, initial-scale=2">
 <title>Scandinavian Defense Login</title>
-<link rel="stylesheet" href="main.css">
+<link rel="stylesheet" href="../css/main.css">
 </head>
 
 <body>

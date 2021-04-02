@@ -1,4 +1,4 @@
-<?php include "./inc/dbinfo.inc"; ?>
+<?php include "../inc/dbinfo.inc"; ?>
 <?php
 
 /* Only execute PHP if it receives data from HTML */
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
 
   /* Add new user into database and take them to new user page */
   $result = mysqli_query($connection,
-    "INSERT $table SET user_id='$username', pwd='$psw'");
+    "INSERT $table SET user_id='$username', pwd='$psw', permissions=0");
   if ($result){
     session_start();
     $_SESSION["logged_in"] = true;
@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
 <head>
 <meta charset="UTF-8">
 <title>Register Form</title>
-<link rel="stylesheet" href="main.css">
+<link rel="stylesheet" href="../css/main.css">
 </head>
 
 <body>
