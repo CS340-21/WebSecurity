@@ -1,215 +1,29 @@
-<<<<<<< HEAD
+<!DOCTYPE html>
 <html>
-
 <head>
-    <title>Login Page</title>
+<meta charset="utf-6">
+<meta name="viewport" content="width=device-width, initial-scale=2">
+<title>Scandinavian Defense Login</title>
+<link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-    <form name="loginForm" method="post" action="login.php">
-    <table width="20%" bgcolor="FF9933" align="center">
 
-        <tr>
-            <td colspan=2><center><font size=4><b>HTML Login Page</b></font></center></td>
-        </tr>
+  <!-- Front page display -->
+  <div class="front-page">
+    <div class="front">
+    <img src="img/Logo.jpeg" alt="Logo">
+      <h2>The #1 Web Security Service of the Norwegian archipelago</h2>
+        <p>
+          Login or register an account today to access expert advice on web defense!
+        </p>
+    <div class="formlarge">
+      <p class="message">
+        <a href="php/login.php">Click here to login</a></p>
+      <p class="message">or
+        <a href="php/register.php">Create an account</a></p>
+    </div>
+  </div>
 
-        <tr>
-            <td>Username:</td>
-            <td><input type="text" size=25 name="userid"></td>
-        </tr>
-
-        <tr>
-            <td>Password:</td>
-            <td><input type="Password" size=25 name="pwd"></td>
-        </tr>
-
-        <tr>
-            <td ><input type="Reset"></td>
-            <td><input type="submit" onclick="return check(this.form)" value="Login"></td>
-        </tr>
-
-    </table>
-    
-    </form>
-    <script src="sha512.js"></script>
-    <script language="javascript">
-
-    /* List of usernames and passwords in plain text. */
-    var users = ["Student", "ShrimpyJ", "Blake", "jLen"];
-    var pwds = ["password123", "hunter2", "password123", "password123"];
-
-    /* List of hashed password */
-    var pwdsHashed = ["", "", "", ""];
-
-    /* Check to see if given password is correct. Case sensitive.
-       Returns: True on success, False on failure */
-    function checkPwd(pwds, pwd, userIndex)
-    {
-        if (userIndex == -1){       // Username is not correct
-            return false;
-        }
- 
-        if (pwds[userIndex] == pwd){
-            return true;
-        }
-
-        return false;     // Return false by default
-    }
-
-    /* Check to see if given user is in list of user. Case insenstive.
-       Returns: index of user in user list if found, -1 otherwise */
-    function checkUser(users, user)
-    {
-        for (var i = 0; i < users.length; i++){
-            if (users[i].toLowerCase() == user.toLowerCase()){
-                return i;  //return index of user if they exist
-            }
-        }
-        return -1;     //return -1 if user does not exist
-    }
-
-    function rejectLogin()
-    {
-        alert("Incorrect username or password");
-        return false;
-    }
-
-    function hashPwd(pwd)
-    {
-        var hash;
-        var i;
-        var c;
-        hash = 0;
-        for (var i = 0; i < pwd.length; i++){
-            c = pwd.charCodeAt(i);
-            hash = ((hash << 5) - hash) + c;
-            hash |= 0;
-        }
-
-        return hash;
-    }
-
-    function hashPwds(pwds, pwdsHashed)
-    {
-        for (var i = 0; i < pwds.length; i++){
-            pwdsHashed[i] = hashPwd(pwds[i]);
-        }
-    }
-
-    function checkPwdHashed(pwdsHashed, pwd, userIndex)
-    {
-        if (userIndex == -1){    // Invalid username
-            return false;
-        }
-
-        var hashed = hashPwd(pwd);
-
-        if (pwdsHashed[userIndex] == hashed){
-            return true;
-        }
-
-        return false;      // Return false by default
-    }
-
-    /* Get username and password from user, check if they are both correct. */
-    function check(form)
-    {
-
-        /* Hash passwords */
-        hashPwds(pwds, pwdsHashed);
-
-        /* Check for username */
-        var userIndex = checkUser(users, form.userid.value);
-        if (userIndex == -1){
-          return rejectLogin();
-        }
-
-        /* Check for password */
-        else{
-            if (checkPwdHashed(pwdsHashed, form.pwd.value, userIndex)){
-                return true;
-            }else{
-                return rejectLogin();
-            }
-        }
-        return false;   // Return false by default
-
-    }
-
-=======
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-
-    <!-- Custom styles for this template -->
-    <link href="css/signin.css" rel="stylesheet">
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
-
-  <!-- TODO: Add SDKs for Firebase products that you want to use
-       https://firebase.google.com/docs/web/setup#available-libraries -->
-  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
-
-  <script>
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    var firebaseConfig = {
-      apiKey: "AIzaSyBNoHeTwr2kX6btbf_6zPIOpg0pRCjG2RA",
-      authDomain: "cs340-307119.firebaseapp.com",
-      databaseURL: "https://cs340-307119-default-rtdb.firebaseio.com",
-      projectId: "cs340-307119",
-      storageBucket: "cs340-307119.appspot.com",
-      messagingSenderId: "722225582614",
-      appId: "1:722225582614:web:8ae9454e9b3e36bc12db37",
-      measurementId: "G-X13YB5GYJW"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-  </script>
-
-    <!-- Put in file later -->
-    <!-- <script type="text/javascript" src="saveToFirebase.js"></script> -->
-    <script type = "text/javascript">
-      function saveToFirebase(email, password) {
-        var userObject = {
-            email: email
-            password: password
-        };
-
-        firebase.database().ref('users').push().set(userObject)
-            .then(function(snapshot) {
-                success(); // some success method
-            }, function(error) {
-                console.log('error' + error);
-                error(); // some error method
-            });
-      }
->>>>>>> 7da5c6030ad92b66172a3c21058bb99c837bb61e
-    </script>
-    <title>Super Secure Login Page</title>
-  </head>
-  <body class="text-center">
-    <form class="form-signin">
-      <img src="img/Logo.jpeg" alt="" width="200" height="200">
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div>
-      <!-- <a href="todo.html" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</a> -->
-      <input type="submit" class="btn btn-lg btn-primary btn-block" onclick="saveToFirebase(document.getElementById('inputEmail').value, document.getElementById('inputPassword').value)" value="Sign In">
-      <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
-    </form>
   </body>
 </html>
