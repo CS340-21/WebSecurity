@@ -29,7 +29,7 @@ if ($_SESSION["permissions"] >= 1){
 
   <div class="main">
     <h3>Phishing</h3>
-    <img src="../img/phishingattack.jpeg" alt="" align="right"
+    <img src="../img/phishingattack.jpg" alt="" align="right"
       style="width: 50%;
              height: auto;
              aspect-ratio: attr(width) / attr(height);
